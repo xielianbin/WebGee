@@ -34,6 +34,7 @@ func (engine *Engine) POST(pattern string, handler HandlerFunc) {
 }
 
 // Run定义了启动http服务器的方法
+// 在开启监听的时候，需要放入地址和一个接口，这个接口必须实现serverHttp方法，当检测到请求的时候就会调用这个方法
 func (engine *Engine) Run(addr string) (err error) {
 	return http.ListenAndServe(addr, engine)
 }
